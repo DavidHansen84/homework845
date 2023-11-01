@@ -60,6 +60,7 @@ router.get("/content", async (req, res, next) => {
   if(result == null) {
     res.json({
       status: "fail",
+      message: "Content is empty"
     });
   } else {
   res.json({
