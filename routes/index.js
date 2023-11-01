@@ -56,7 +56,7 @@ router.get("/content", async (req, res, next) => {
     Bucket: "cyclic-dark-gray-armadillo-tie-eu-north-1",
     Key: "content.json",
   }).promise()
-  const result = JSON.parse(my_file.Body)?.favouriteNumber;
+  const result = JSON.parse(my_file.Body)?.content;
   if(result == null) {
     res.json({
       status: "fail",
