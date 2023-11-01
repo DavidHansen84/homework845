@@ -53,7 +53,7 @@ router.post("/favNumber", async (req, res) => {
 
 router.get("/content", async (req, res, next) => {
   let my_file = await s3.getObject({
-    Bucket: process.env.CYCLIC_BUCKET_NAME,
+    Bucket: "cyclic-dark-gray-armadillo-tie-eu-north-1",
     Key: "content.json",
   }).promise()
   const result = JSON.parse(my_file.Body)?.favouriteNumber;
@@ -79,7 +79,7 @@ router.post("/content", async (req, res, next) => {
   
   await s3.putObject({
     Body: JSON.stringify(contentObj, null, 2),
-    Bucket: process.env.CYCLIC_BUCKET_NAME,
+    Bucket: "cyclic-dark-gray-armadillo-tie-eu-north-1",
     Key: "content.json"
   }).promise()
   res.json({
